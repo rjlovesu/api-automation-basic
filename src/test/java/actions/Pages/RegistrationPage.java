@@ -1,6 +1,6 @@
-package helpers.PageLib;
+package actions.Pages;
 
-import domain.User;
+import domain.UserRegistrationResponse;
 import helpers.TestCaseContext;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
@@ -33,7 +33,8 @@ public class RegistrationPage extends BasePage {
     ValidatableResponse response =
             JUICE_SHOP_CLIENT.getRegistrationCalls().createUser(userRegistrationPayload);
     response.statusCode(201);
-    User user = response.extract().body().as(User.class);
-    TestCaseContext.getLedger().put("user", user);
+    UserRegistrationResponse userRegistrationResponse = response.extract().body().as(UserRegistrationResponse.class);
+
+    TestCaseContext.getLedger().put("Created user", userRegistrationResponse);
   }
 }

@@ -3,7 +3,7 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
-public class User {
+public class UserRegistrationResponse {
   // Variables
   @JsonProperty(value = "status")
   private String status;

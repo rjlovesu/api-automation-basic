@@ -1,7 +1,7 @@
 package stepdefinitions;
 
 import cucumber.api.java.en.When;
-import helpers.ActionManager;
+import actions.ActionManager;
 import io.cucumber.datatable.DataTable;
 
 public class actionSteps {
