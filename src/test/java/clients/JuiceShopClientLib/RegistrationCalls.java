@@ -9,7 +9,7 @@ public class RegistrationCalls extends BaseCalls {
   // Variables
   private static final String API_USERS = "api/Users/";
   //  Methods
-  public static ValidatableResponse createUser(UserRegistrationPayload payload){
+  public ValidatableResponse createUser(UserRegistrationPayload payload){
     return  (ValidatableResponse) RestAssured.
             given().
             log().ifValidationFails().

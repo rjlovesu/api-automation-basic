@@ -1,19 +1,17 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
-  //@JsonProperty(value = "os_version")
   // Variables
+  @JsonProperty(value = "status")
   private String status;
   private String username;
   private String role;
   private String lastLoginIp;
   private String profileImage;
   private String isActive;
-  @JsonProperty(value = "id")
   private Integer id;
   private String email;
   private String updatedAt;
@@ -85,5 +83,18 @@ public class User {
   }
   public void setDeletedAt(String deletedAt) {
     this.deletedAt = deletedAt;
+  }
+  @JsonProperty("data")
+  private void unpackData(Map<String, String> data) {
+    setUsername((data.get("username")));
+    setRole((data.get("role")));
+    setLastLoginIp((data.get("lastLoginIp")));
+    setProfileImage((data.get("profileImage")));
+    setIsActive((data.get("isActive")));
+    setId(Integer.parseInt(data.get("id")));
+    setEmail(data.get("email"));
+    setCreatedAt(data.get("updatedAt"));
+    setCreatedAt(data.get("createdAt"));
+    setCreatedAt(data.get("deletedAt"));
   }
 }
