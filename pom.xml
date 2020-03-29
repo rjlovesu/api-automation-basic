@@ -28,7 +28,7 @@
         <rest-assured.version>3.1.0</rest-assured.version>
         <json.version>20180130</json.version>
         <logback.version>1.2.3</logback.version>
-        <jackson.version>2.6.3</jackson.version>
+        <jackson.version>2.9.10.1</jackson.version>
         <javax.ws.version>2.0</javax.ws.version>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>

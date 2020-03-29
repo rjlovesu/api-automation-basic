@@ -1,4 +1,5 @@
 .idea/
+.idea
 api-automation-basic.iml
 target/
 build/
