@@ -1,8 +1,9 @@
 package stepdefinitions;
 
 import cucumber.api.java.en.Then;
-import actions.ActionManager;
 import io.cucumber.datatable.DataTable;
+
+import actions.ActionManager;
 
 public class validationSteps {
   @Then("I log in with the following data:")

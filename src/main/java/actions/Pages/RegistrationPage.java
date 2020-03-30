@@ -1,12 +1,13 @@
 package actions.Pages;
 
-import domain.UserRegistrationResponse;
-import helpers.TestCaseContext;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
+import java.util.Map;
+
+import domain.UserRegistrationResponse;
 import payload.SecurityQuestionPayload;
 import payload.UserRegistrationPayload;
-import java.util.Map;
+import helpers.TestCaseContext;
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;

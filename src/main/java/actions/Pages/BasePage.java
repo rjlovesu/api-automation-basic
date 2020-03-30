@@ -3,14 +3,10 @@ package actions.Pages;
 import io.cucumber.datatable.DataTable;
 
 public class BasePage {
-
+  // Methods
   public void doAction(String action, DataTable dataTable) {
     throw new Error(action + " is undefined");
   }
-
-
-
-
   // Helper methods
   public String capitalize(String words){
     words = words.toLowerCase().

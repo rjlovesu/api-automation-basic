@@ -1,6 +1,7 @@
 package clients.JuiceShopClientLib;
 
 import io.restassured.response.ValidatableResponse;
+
 import payload.UserLogInPayload;
 
 public class LoginCalls extends BaseCalls {

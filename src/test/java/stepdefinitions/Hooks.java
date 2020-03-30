@@ -2,13 +2,12 @@ package stepdefinitions;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import helpers.TestCaseContext;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import static java.lang.Thread.sleep;
 
+import helpers.TestCaseContext;
+import static java.lang.Thread.sleep;
 
 public class Hooks {
   Process juiceShopProcess;

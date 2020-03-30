@@ -3,6 +3,7 @@ package clients.JuiceShopClientLib;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
+
 import payload.Payload;
 
 public class BaseCalls {
