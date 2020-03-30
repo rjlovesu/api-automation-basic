@@ -1,10 +1,10 @@
-package actions;
+package pages;
 
-import actions.Pages.BasePage;
-import actions.Pages.LoginPage;
-import actions.Pages.RegistrationPage;
+import pages.pagesLib.BasePage;
+import pages.pagesLib.LoginPage;
+import pages.pagesLib.RegistrationPage;
 
-public class ActionManager {
+public class PagesManager {
     private static RegistrationPage registrationPage = new RegistrationPage();
     private static LoginPage loginPage = new LoginPage();
 

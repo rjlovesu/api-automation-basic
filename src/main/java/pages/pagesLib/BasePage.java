@@ -1,4 +1,4 @@
-package actions.Pages;
+package pages.pagesLib;
 
 import io.cucumber.datatable.DataTable;
 
