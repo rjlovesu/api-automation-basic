@@ -3,11 +3,7 @@ package stepdefinitions;
 import cucumber.api.java.en.Then;
 import io.cucumber.datatable.DataTable;
 
-import pages.PagesManager;
+import pages.PageManager;
 
 public class validationSteps {
-  @Then("I log in with the following data:")
-  public void i_log_in_with_the_following_data(DataTable dataTable) {
-    PagesManager.getPage("login").doAction("log in", dataTable);
-  }
 }

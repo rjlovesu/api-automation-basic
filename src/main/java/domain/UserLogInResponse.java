@@ -8,7 +8,6 @@ public class UserLogInResponse {
   private String Token;
   private Integer bid;
   private String umail;
-
   // Getters & Setters
   public String getToken() {
     return Token;
@@ -28,7 +27,6 @@ public class UserLogInResponse {
   public void setUmail(String umail) {
     this.umail = umail;
   }
-
   @JsonProperty("authentication")
   private void unpackData(Map<String, String> data) {
     setToken(data.get("token"));

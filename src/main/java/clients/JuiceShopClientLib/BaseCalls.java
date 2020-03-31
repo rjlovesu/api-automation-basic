@@ -21,4 +21,15 @@ public class BaseCalls {
             then().
             log().ifValidationFails();
   }
+  public ValidatableResponse get(String post){
+    return  (ValidatableResponse) RestAssured.
+            given().
+            log().ifValidationFails().
+            contentType(ContentType.JSON).
+            body("{}").
+            when().
+            get(BASE_PAGE + post).
+            then().
+            log().ifValidationFails();
+  }
 }

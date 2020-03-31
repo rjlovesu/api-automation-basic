@@ -7,6 +7,7 @@ public class BasePage {
   public void doAction(String action, DataTable dataTable) {
     throw new Error(action + " is undefined");
   }
+  public void doAction(String action, String data) { throw new Error(action + " is undefined"); }
   // Helper methods
   public String capitalize(String words){
     words = words.toLowerCase().
