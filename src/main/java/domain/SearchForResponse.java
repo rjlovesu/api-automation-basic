@@ -38,11 +38,5 @@ public class SearchForResponse {
       String deletedAt = map.get("deletedAt");
       productInfos.add(new ProductInfo(id, name, description, price, deluxePrice, image, createdAt, updatedAt, deletedAt));
     }
-    System.out.println("????????");
-    System.out.println(productInfos.get(0).getCreatedAt());
-
-    // setToken(data.get("token"));
-    // setBid(Integer.parseInt(data.get("bid")));
-    // setUmail(data.get("umail"));
   }
 }

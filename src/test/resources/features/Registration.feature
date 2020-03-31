@@ -1,6 +1,5 @@
 Feature: Basic Actions feature
 
-  @WIP
   Scenario: Create new Juice Shop user
     When I "create user" in "Registration" page with the following data:
       | Email             | foo@bar.com                |
@@ -12,4 +11,8 @@ Feature: Basic Actions feature
       | Password | easyPassword |
 
   Scenario: Search for apple
-    When I search for "apple"
+    When I search for "banana"
+    Then I see "search results" in "Results" page with following data:
+      | Name         | Banana Juice (1000ml)     |
+      | Description  | Monkeys love it the most. |
+      | Price        | 1.99                      |
