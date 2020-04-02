@@ -17,13 +17,9 @@ public class HomePage extends BasePage {
   }
   public void searchFor(String str){
     info("Searching for: " + str);
-
     ValidatableResponse response = JUICE_SHOP_CLIENT.getHomeCalls().searchFor(str);
-
     response.statusCode(200);
-
     SearchForResponse searchForResponse = response.extract().body().as(SearchForResponse.class);
-
-    TestCaseContext.getLedger().put("Search Response", searchForResponse);
+    TestCaseContext.getLedger().put("searchResponse", searchForResponse);
   }
 }

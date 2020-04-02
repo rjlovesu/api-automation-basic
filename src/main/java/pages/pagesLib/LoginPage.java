@@ -29,7 +29,6 @@ public class LoginPage extends BasePage {
     ValidatableResponse response = JUICE_SHOP_CLIENT.getLoginCalls().logIn(userLogInPayload);
     response.statusCode(200);
     UserLogInResponse userLogInResponse = response.extract().body().as(UserLogInResponse.class);
-
-    TestCaseContext.getLedger().put("Logged in user", userLogInResponse);
+    TestCaseContext.getLedger().put("loggedInUser", userLogInResponse);
   }
 }

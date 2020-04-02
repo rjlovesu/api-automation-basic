@@ -36,6 +36,6 @@ public class RegistrationPage extends BasePage {
     response.statusCode(201);
     UserRegistrationResponse userRegistrationResponse = response.extract().body().as(UserRegistrationResponse.class);
 
-    TestCaseContext.getLedger().put("Created user", userRegistrationResponse);
+    TestCaseContext.getLedger().put("createdUser", userRegistrationResponse);
   }
 }

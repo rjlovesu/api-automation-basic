@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.PageManager;
@@ -12,12 +13,18 @@ public class actionSteps {
   }
 
   @When("I search for {string}")
-  public void i_search_for(String str) {
-    PageManager.getPage("Home").doAction("search for", str);
+  public void i_search_for(String productName) {
+    PageManager.getPage("Home").doAction("search for", productName);
   }
 
   @Then("I log in with the following data:")
   public void i_log_in_with_the_following_data(DataTable dataTable) {
     PageManager.getPage("Login").doAction("log in", dataTable);
+  }
+
+  @And("I add {string} to the basket")
+  public void iAddToTheBasket(String product) {
+    PageManager.getPage("Home").doAction("search for", product);
+    PageManager.getPage("Search Results").doAction("Add to basket", product);
   }
 }
