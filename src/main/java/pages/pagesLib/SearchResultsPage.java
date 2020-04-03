@@ -1,16 +1,20 @@
 package pages.pagesLib;
 
+import cucumber.api.java.es.E;
 import domain.ProductInfo;
 import domain.SearchForResponse;
 import domain.UserLogInResponse;
+import domain.UserRegistrationResponse;
 import helpers.TestCaseContext;
 import io.cucumber.datatable.DataTable;
+import io.restassured.response.ValidatableResponse;
 import org.assertj.core.api.Assertions;
 import payload.BasketItemsPayload;
 
 import java.util.Map;
 
 import static helpers.Logger.info;
+import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;
 
 public class SearchResultsPage extends BasePage {
   // Methods
@@ -40,13 +44,17 @@ public class SearchResultsPage extends BasePage {
   public void addToBasket(String data){
     info("Adding to basket: " + data);
     SearchForResponse searchForResponse = (SearchForResponse) TestCaseContext.getLedger().get("searchResponse");
+    if(searchForResponse.getProductInfos().isEmpty()){
+      throw new Error("Search results were empty");
+    }
     ProductInfo firstProduct = searchForResponse.getProductInfos().get(0);
     UserLogInResponse user = (UserLogInResponse)TestCaseContext.getLedger().get("loggedInUser");
     if(firstProduct.getName().equals(data)){
-      info(firstProduct.getId() + " ");
       BasketItemsPayload basketItemsPayload =
               new BasketItemsPayload(firstProduct.getId(), user.getBid().toString(), 1);
-
+      ValidatableResponse response =
+              JUICE_SHOP_CLIENT.getShoppingCalls().addToBasket(user.getToken(), basketItemsPayload);
+      response.statusCode(200);
     }else {
       throw new Error("Given item name " + data + " not found in the search response");
     }

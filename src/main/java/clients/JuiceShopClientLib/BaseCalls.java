@@ -21,6 +21,18 @@ public class BaseCalls {
             then().
             log().ifValidationFails();
   }
+  public ValidatableResponse post(String token, String post, Payload payload){
+    return  (ValidatableResponse) RestAssured.
+            given().
+            log().ifValidationFails().
+            header("Authorization", "Bearer " + token).
+            contentType(ContentType.JSON).
+            body(payload).
+            when().
+            post(BASE_PAGE + post).
+            then().
+            log().ifValidationFails();
+  }
   public ValidatableResponse get(String post){
     return  (ValidatableResponse) RestAssured.
             given().
