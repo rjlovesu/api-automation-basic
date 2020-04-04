@@ -1,9 +1,9 @@
 Feature: Basic Actions feature
 
-  @WIP
+  @WIPx
   Scenario: Search for banana
     When I search for "banana"
-    Then I see "search results" in "Results" page with following data:
+    Then I see "search results" in "Search" page with following data:
       | Name         | Banana Juice (1000ml)     |
       | Description  | Monkeys love it the most. |
       | Price        | 1.99                      |
@@ -18,9 +18,10 @@ Feature: Basic Actions feature
       | Email    | foo@bar.com  |
       | Password | easyPassword |
 
+    @WIP
   Scenario: Order an item
     When I log in with the following data:
       | Email    | demo |
       | Password | demo |
     And I add "Juice Shop Artwork" to the basket
-    
+    And I perform checkout

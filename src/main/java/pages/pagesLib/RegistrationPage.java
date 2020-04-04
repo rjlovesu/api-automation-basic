@@ -32,7 +32,7 @@ public class RegistrationPage extends BasePage {
     UserRegistrationPayload userRegistrationPayload =
             new UserRegistrationPayload(email, password, securityQuestionPayload, securityAnswer);
     ValidatableResponse response =
-            JUICE_SHOP_CLIENT.getRegistrationCalls().createUser(userRegistrationPayload);
+            JUICE_SHOP_CLIENT.getApiCalls().createUser(userRegistrationPayload);
     response.statusCode(201);
     UserRegistrationResponse userRegistrationResponse = response.extract().body().as(UserRegistrationResponse.class);
 

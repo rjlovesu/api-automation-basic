@@ -1,22 +1,19 @@
 package pages.pagesLib;
 
-import cucumber.api.java.es.E;
 import domain.ProductInfo;
 import domain.SearchForResponse;
 import domain.UserLogInResponse;
-import domain.UserRegistrationResponse;
 import helpers.TestCaseContext;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
 import org.assertj.core.api.Assertions;
 import payload.BasketItemsPayload;
-
 import java.util.Map;
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;
 
-public class SearchResultsPage extends BasePage {
+public class SearchPage extends BasePage {
   // Methods
   @Override
   public void doAction(String action, DataTable dataTable) {
@@ -53,7 +50,7 @@ public class SearchResultsPage extends BasePage {
       BasketItemsPayload basketItemsPayload =
               new BasketItemsPayload(firstProduct.getId(), user.getBid().toString(), 1);
       ValidatableResponse response =
-              JUICE_SHOP_CLIENT.getShoppingCalls().addToBasket(user.getToken(), basketItemsPayload);
+              JUICE_SHOP_CLIENT.getApiCalls().addToBasket(user.getToken(), basketItemsPayload);
       response.statusCode(200);
     }else {
       throw new Error("Given item name " + data + " not found in the search response");

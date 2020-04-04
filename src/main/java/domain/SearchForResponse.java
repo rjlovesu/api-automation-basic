@@ -27,16 +27,7 @@ public class SearchForResponse {
   private void unpackData(ArrayList<Map<String, String>> data) {
     productInfos = new ArrayList<ProductInfo>();
     for (Map<String, String> map : data) {
-      Integer id = Integer.parseInt(map.get("id"));
-      String name = map.get("name");
-      String description = map.get("description");
-      Double price = Double.parseDouble(map.get("price"));
-      Double deluxePrice = Double.parseDouble(map.get("deluxePrice"));
-      String image = map.get("image");
-      String createdAt = map.get("createdAt");
-      String updatedAt = map.get("updatedAt");
-      String deletedAt = map.get("deletedAt");
-      productInfos.add(new ProductInfo(id, name, description, price, deluxePrice, image, createdAt, updatedAt, deletedAt));
+      productInfos.add(new ProductInfo(map));
     }
   }
 }

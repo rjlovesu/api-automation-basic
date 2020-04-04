@@ -25,6 +25,11 @@ public class actionSteps {
   @And("I add {string} to the basket")
   public void iAddToTheBasket(String product) {
     PageManager.getPage("Home").doAction("search for", product);
-    PageManager.getPage("Search Results").doAction("Add to basket", product);
+    PageManager.getPage("Search").doAction("Add to basket", product);
+  }
+
+  @And("I perform checkout")
+  public void iPerformCheckout() {
+    PageManager.getPage("Basket").doAction("checkout");
   }
 }

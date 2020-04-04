@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Map;
+
 public class ProductInfo {
   // Variables
   private Integer id;
@@ -12,16 +14,16 @@ public class ProductInfo {
   private String updatedAt;
   private String deletedAt;
   // Constructor
-  public ProductInfo(Integer id, String name, String description, Double price, Double deluxePrice, String image, String createdAt, String updatedAt, String deletedAt) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.deluxePrice = deluxePrice;
-    this.image = image;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
-    this.deletedAt = deletedAt;
+  public ProductInfo(Map<String, String> map) {
+    this.id = Integer.parseInt(map.get("id"));
+    this.name = map.get("name");
+    this.description = map.get("description");
+    this.price = Double.parseDouble(map.get("price"));
+    this.deluxePrice = Double.parseDouble(map.get("deluxePrice"));
+    this.image = map.get("image");
+    this.createdAt = map.get("createdAt");
+    this.updatedAt = map.get("updatedAt");
+    this.deletedAt = map.get("deletedAt");
   }
   // Getters & Setters
   public Integer getId() {

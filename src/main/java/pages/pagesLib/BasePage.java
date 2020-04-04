@@ -8,6 +8,9 @@ public class BasePage {
     throw new Error(action + " is undefined");
   }
   public void doAction(String action, String data) { throw new Error(action + " is undefined"); }
+  public void doAction(String action){
+    throw new Error(action + " is undefined");
+  }
   // Helper methods
   public String capitalize(String words){
     words = words.toLowerCase().

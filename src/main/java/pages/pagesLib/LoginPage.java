@@ -26,7 +26,7 @@ public class LoginPage extends BasePage {
     String email = map.get("Email");
     String password = map.get("Password");
     UserLogInPayload userLogInPayload = new UserLogInPayload(email, password);
-    ValidatableResponse response = JUICE_SHOP_CLIENT.getLoginCalls().logIn(userLogInPayload);
+    ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().logIn(userLogInPayload);
     response.statusCode(200);
     UserLogInResponse userLogInResponse = response.extract().body().as(UserLogInResponse.class);
     TestCaseContext.getLedger().put("loggedInUser", userLogInResponse);
