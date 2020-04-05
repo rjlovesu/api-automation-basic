@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class UserLogInResponse {
   // Variables
-  private String Token;
+  private String token;
   private Integer bid;
   private String umail;
   // Getters & Setters
   public String getToken() {
-    return Token;
+    return token;
   }
   public void setToken(String token) {
-    Token = token;
+    this.token = token;
   }
   public Integer getBid() {
     return bid;
@@ -29,8 +29,8 @@ public class UserLogInResponse {
   }
   @JsonProperty("authentication")
   private void unpackData(Map<String, String> data) {
-    setToken(data.get("token"));
-    setBid(Integer.parseInt(data.get("bid")));
-    setUmail(data.get("umail"));
+    this.token = data.get("token");
+    this.bid = Integer.parseInt(data.get("bid"));
+    this.umail = data.get("umail");
   }
 }

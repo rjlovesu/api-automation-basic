@@ -1,14 +1,15 @@
 package pages.pagesLib;
 
-import domain.ProductInfo;
-import domain.SearchForResponse;
-import domain.UserLogInResponse;
-import helpers.TestCaseContext;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
 import org.assertj.core.api.Assertions;
-import payload.BasketItemsPayload;
 import java.util.Map;
+
+import helpers.TestCaseContext;
+import payload.BasketItemsPayload;
+import domain.ProductInfo;
+import domain.SearchForResponse;
+import domain.UserLogInResponse;
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;
@@ -32,7 +33,7 @@ public class SearchPage extends BasePage {
   public void searchResults(DataTable dataTable){
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
     info("Validating Search Results with following data:\n" + map);
-    SearchForResponse searchForResponse = (SearchForResponse) TestCaseContext.getLedger().get("Search Response");
+    SearchForResponse searchForResponse = (SearchForResponse) TestCaseContext.getLedger().get("searchResponse");
     ProductInfo productInfo =  searchForResponse.getProductInfos().get(0);
     Assertions.assertThat(productInfo.getName()).isEqualTo(map.get("Name"));
     Assertions.assertThat(productInfo.getDescription()).isEqualTo(map.get("Description"));
@@ -50,7 +51,7 @@ public class SearchPage extends BasePage {
       BasketItemsPayload basketItemsPayload =
               new BasketItemsPayload(firstProduct.getId(), user.getBid().toString(), 1);
       ValidatableResponse response =
-              JUICE_SHOP_CLIENT.getApiCalls().addToBasket(user.getToken(), basketItemsPayload);
+              JUICE_SHOP_CLIENT.getApiCalls().addToBasket(basketItemsPayload);
       response.statusCode(200);
     }else {
       throw new Error("Given item name " + data + " not found in the search response");

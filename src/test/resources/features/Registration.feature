@@ -7,7 +7,8 @@ Feature: Basic Actions feature
       | Name         | Banana Juice (1000ml)     |
       | Description  | Monkeys love it the most. |
       | Price        | 1.99                      |
-  @WIP
+
+  @WIPx
   Scenario: Create new Juice Shop user
     When I "create user" in "Registration" page with the following data:
       | Email             | foo@bar.com                |
@@ -18,7 +19,7 @@ Feature: Basic Actions feature
       | Email    | foo@bar.com  |
       | Password | easyPassword |
 
-    @WIP
+  @WIPx
   Scenario: Order an item
     When I log in with the following data:
       | Email    | demo |

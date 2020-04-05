@@ -9,6 +9,10 @@ public class AddressResponse {
   // Variables
   private String status;
   private ArrayList<AddressInfo> addressInfos;
+  // Getter & setters
+  public ArrayList<AddressInfo> getAddressInfos() {
+    return addressInfos;
+  }
   // Methods
   @JsonProperty("data")
   private void unpackData(ArrayList<Map<String, String>> data) {
@@ -16,5 +20,11 @@ public class AddressResponse {
     for (Map<String, String> map : data) {
       addressInfos.add(new AddressInfo(map));
     }
+  }
+  public String getStatus() {
+    return status;
+  }
+  public void setStatus(String status) {
+    this.status = status;
   }
 }

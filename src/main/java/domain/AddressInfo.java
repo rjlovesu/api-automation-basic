@@ -6,7 +6,7 @@ public class AddressInfo {
   // Variables
   private Integer id;
   private String fullName;
-  private Integer mobileNum;
+  private String mobileNum;
   private String zipCode;
   private String streetAddress;
   private String city;
@@ -19,7 +19,7 @@ public class AddressInfo {
   public AddressInfo(Map<String, String> map){
     this.id = Integer.parseInt(map.get("id"));
     this.fullName = map.get("fullName");
-    this.mobileNum = Integer.parseInt(map.get("mobileNum"));
+    this.mobileNum = map.get("mobileNum");
     this.zipCode = map.get("zipCode");
     this.streetAddress = map.get("streetAddress");
     this.city = map.get("city");
@@ -42,10 +42,10 @@ public class AddressInfo {
   public void setFullName(String fullName) {
     this.fullName = fullName;
   }
-  public Integer getMobileNum() {
+  public String getMobileNum() {
     return mobileNum;
   }
-  public void setMobileNum(Integer mobileNum) {
+  public void setMobileNum(String mobileNum) {
     this.mobileNum = mobileNum;
   }
   public String getZipCode() {
