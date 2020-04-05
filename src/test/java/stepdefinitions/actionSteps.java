@@ -28,8 +28,26 @@ public class actionSteps {
     PageManager.getPage("Search").doAction("Add to basket", product);
   }
 
-  @And("I perform checkout")
-  public void iPerformCheckout() {
+  @And("I choose delivery address {string}")
+  public void iChooseAddress(String address) {
     PageManager.getPage("Basket").doAction("checkout");
+    PageManager.getPage("Address").doAction("choose delivery address", address);
+  }
+
+  @And("I choose delivery option {string}")
+  public void iChooseDeliverySpeed(String option) {
+    PageManager.getPage("Delivery options").doAction("get delivery options");
+    PageManager.getPage("Delivery options").doAction("choose delivery option", option);
+  }
+
+  @And("I choose payment card {string}")
+  public void iChoosePaymentCard(String cardNumber) {
+    PageManager.getPage("Payment options").doAction("get payment options");
+    PageManager.getPage("Payment options").doAction("choose payment option", cardNumber);
+  }
+
+  @And("I checkout the order")
+  public void iCheckoutTheOrder() {
+    PageManager.getPage("order completion").doAction("checkout order");
   }
 }

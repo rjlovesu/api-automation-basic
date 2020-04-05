@@ -1,13 +1,11 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
 import java.util.Map;
 
-public class AddressResponse {
+public class AddressResponse extends BaseResponse {
   // Variables
-  private String status;
   private ArrayList<AddressInfo> addressInfos;
   // Getter & setters
   public ArrayList<AddressInfo> getAddressInfos() {
@@ -20,11 +18,5 @@ public class AddressResponse {
     for (Map<String, String> map : data) {
       addressInfos.add(new AddressInfo(map));
     }
-  }
-  public String getStatus() {
-    return status;
-  }
-  public void setStatus(String status) {
-    this.status = status;
   }
 }

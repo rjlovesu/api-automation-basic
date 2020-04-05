@@ -5,9 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class SearchForResponse {
+public class SearchForResponse extends BaseResponse {
   // Variables
-  private String status;
   private ArrayList<ProductInfo> productInfos;
   // Getters and Setters
   public ArrayList<ProductInfo> getProductInfos() {
@@ -15,12 +14,6 @@ public class SearchForResponse {
   }
   public void setProductInfos(ArrayList<ProductInfo> productInfos) {
     this.productInfos = productInfos;
-  }
-  public String getStatus() {
-    return status;
-  }
-  public void setStatus(String status) {
-    this.status = status;
   }
   // Methods
   @JsonProperty("data")

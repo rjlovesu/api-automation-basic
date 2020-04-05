@@ -3,7 +3,7 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
-public class UserLogInResponse {
+public class UserLogInResponse extends BaseResponse {
   // Variables
   private String token;
   private Integer bid;
@@ -29,8 +29,8 @@ public class UserLogInResponse {
   }
   @JsonProperty("authentication")
   private void unpackData(Map<String, String> data) {
-    this.token = data.get("token");
-    this.bid = Integer.parseInt(data.get("bid"));
-    this.umail = data.get("umail");
+    setToken(data.get("token"));
+    setBid(Integer.parseInt(data.get("bid")));
+    setUmail(data.get("umail"));
   }
 }

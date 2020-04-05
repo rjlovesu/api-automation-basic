@@ -1,6 +1,6 @@
 Feature: Basic Actions feature
 
-  @WIPx
+  @WIP
   Scenario: Search for banana
     When I search for "banana"
     Then I see "search results" in "Search" page with following data:
@@ -8,7 +8,7 @@ Feature: Basic Actions feature
       | Description  | Monkeys love it the most. |
       | Price        | 1.99                      |
 
-  @WIPx
+  @WIP
   Scenario: Create new Juice Shop user
     When I "create user" in "Registration" page with the following data:
       | Email             | foo@bar.com                |
@@ -25,4 +25,11 @@ Feature: Basic Actions feature
       | Email    | demo |
       | Password | demo |
     And I add "Juice Shop Artwork" to the basket
-    And I perform checkout
+    And I choose delivery address "Dummystreet 42"
+    And I choose delivery option "Fast Delivery"
+    And I choose payment card "1234567812345678"
+    And I checkout the order
+    Then I see "track order" in "order completion" page with following data:
+      | Name      | Juice Shop Artwork |
+      | Price     | 278.74             |
+      | Delivered | false              |

@@ -3,10 +3,8 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
-public class UserRegistrationResponse {
+public class UserRegistrationResponse extends BaseResponse {
   // Variables
-  @JsonProperty(value = "status")
-  private String status;
   private String username;
   private String role;
   private String lastLoginIp;
@@ -18,12 +16,6 @@ public class UserRegistrationResponse {
   private String createdAt;
   private String deletedAt;
   // Getters & Setters
-  public String getStatus() {
-    return status;
-  }
-  public void setStatus(String status) {
-    this.status = status;
-  }
   public String getUsername() {
     return username;
   }
