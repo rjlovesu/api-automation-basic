@@ -12,7 +12,7 @@ public class RestCalls extends BaseCalls {
   private static final String REST_PRODUCTS_SEARCH = "rest/products/search?q=";
   private static final String REST_BASKET_ = "rest/basket/";
   private static final String _CHECKOUT = "/checkout";
-
+  private static final String REST_TRACK_ORDER = "rest/track-order/";
   // Methods
   public ValidatableResponse logIn(UserLogInPayload payload){
     return post(REST_USER_LOGIN, payload);
@@ -22,5 +22,8 @@ public class RestCalls extends BaseCalls {
   }
   public ValidatableResponse checkoutBasket(Integer bid, BasketCheckoutPayload payload){
     return post(REST_BASKET_ + bid + _CHECKOUT, payload);
+  }
+  public ValidatableResponse getTrackOrder(String orderId){
+    return get(REST_TRACK_ORDER + orderId);
   }
 }

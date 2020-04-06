@@ -1,5 +1,6 @@
 package pages.pagesLib;
 
+import domain.TrackOrderResponse;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
 import java.util.Map;
@@ -42,12 +43,17 @@ public class OrderCompletionPage extends BasePage {
     ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().checkoutBasket(bid, basketCheckoutPayload);
     response.statusCode(200);
     OrderResponse orderResponse = response.extract().body().as(OrderResponse.class);
-    TestCaseContext.getLedger().put("orderResponse", orderResponse);
+    TestCaseContext.getLedger().put("orderId", orderResponse.getOrderConfirmation());
   }
-
   public void trackOrder(DataTable dataTable){
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
     info("Tracking order with the following data:\n" + map);
     // TODO FINISH ORDER TRACKING !!!!!!!
+    String orderId = (String) TestCaseContext.getLedger().get("orderId");
+    ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().getTrackOrder(orderId);
+    response.statusCode(200);
+    System.out.println("?????");
+    TrackOrderResponse trackOrderResponse = (TrackOrderResponse) response.extract().body().as(TrackOrderResponse.class);
+    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
   }
 }

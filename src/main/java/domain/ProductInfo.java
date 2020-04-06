@@ -13,6 +13,9 @@ public class ProductInfo {
   private String createdAt;
   private String updatedAt;
   private String deletedAt;
+  private Integer bonus;
+  private Integer quantity;
+  private Double total;
   // Constructor
   public ProductInfo(Map<String, String> map) {
     this.id = Integer.parseInt(map.get("id"));
@@ -24,6 +27,9 @@ public class ProductInfo {
     this.createdAt = map.get("createdAt");
     this.updatedAt = map.get("updatedAt");
     this.deletedAt = map.get("deletedAt");
+    this.bonus = (map.get("bonus") == null) ? null : Integer.parseInt(map.get("bonus"));
+    this.quantity = (map.get("quantity") == null) ? null : Integer.parseInt(map.get("quantity"));
+    this.total = (map.get("total") == null) ? null : Double.parseDouble(map.get("total"));
   }
   // Getters & Setters
   public Integer getId() {
@@ -79,5 +85,23 @@ public class ProductInfo {
   }
   public void setDeletedAt(String deletedAt) {
     this.deletedAt = deletedAt;
+  }
+  public Integer getBonus() {
+    return bonus;
+  }
+  public void setBonus(Integer bonus) {
+    this.bonus = bonus;
+  }
+  public Integer getQuantity() {
+    return quantity;
+  }
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
+  public Double getTotal() {
+    return total;
+  }
+  public void setTotal(Double total) {
+    this.total = total;
   }
 }
