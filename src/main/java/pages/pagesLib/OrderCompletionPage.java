@@ -1,5 +1,6 @@
 package pages.pagesLib;
 
+import domain.ProductInfo;
 import domain.TrackOrderResponse;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
@@ -8,6 +9,7 @@ import java.util.Map;
 import domain.OrderResponse;
 import domain.UserLogInResponse;
 import helpers.TestCaseContext;
+import org.assertj.core.api.Assertions;
 import payload.BasketCheckoutPayload;
 import payload.OrderDetailsPayload;
 
@@ -48,12 +50,16 @@ public class OrderCompletionPage extends BasePage {
   public void trackOrder(DataTable dataTable){
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
     info("Tracking order with the following data:\n" + map);
-    // TODO FINISH ORDER TRACKING !!!!!!!
     String orderId = (String) TestCaseContext.getLedger().get("orderId");
     ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().getTrackOrder(orderId);
     response.statusCode(200);
-    System.out.println("?????");
-    TrackOrderResponse trackOrderResponse = (TrackOrderResponse) response.extract().body().as(TrackOrderResponse.class);
-    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+    TrackOrderResponse trackOrderResponse = response.extract().body().as(TrackOrderResponse.class);
+    ProductInfo productInfo = trackOrderResponse.getTrackOrderInfo().getProducts().get(0);
+    Assertions.assertThat(productInfo.getName()).
+            isEqualTo(map.get("Name"));
+    Assertions.assertThat(productInfo.getPrice().toString()).
+            isEqualTo(map.get("Price"));
+    Assertions.assertThat(trackOrderResponse.getTrackOrderInfo().getDelivered().toString()).
+            isEqualTo(map.get("Delivered"));
   }
 }

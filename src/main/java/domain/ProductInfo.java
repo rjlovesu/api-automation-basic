@@ -17,19 +17,19 @@ public class ProductInfo {
   private Integer quantity;
   private Double total;
   // Constructor
-  public ProductInfo(Map<String, String> map) {
-    this.id = Integer.parseInt(map.get("id"));
-    this.name = map.get("name");
-    this.description = map.get("description");
-    this.price = Double.parseDouble(map.get("price"));
-    this.deluxePrice = Double.parseDouble(map.get("deluxePrice"));
-    this.image = map.get("image");
-    this.createdAt = map.get("createdAt");
-    this.updatedAt = map.get("updatedAt");
-    this.deletedAt = map.get("deletedAt");
-    this.bonus = (map.get("bonus") == null) ? null : Integer.parseInt(map.get("bonus"));
-    this.quantity = (map.get("quantity") == null) ? null : Integer.parseInt(map.get("quantity"));
-    this.total = (map.get("total") == null) ? null : Double.parseDouble(map.get("total"));
+  public ProductInfo(Map<String, Object> map) {
+    this.id = (Integer) map.get("id");
+    this.name = (String) map.get("name");
+    this.description = (String) map.get("description");
+    this.price = (Double) map.get("price");
+    this.deluxePrice = (Double) map.get("deluxePrice");
+    this.image = (String) map.get("image");
+    this.createdAt = (String) map.get("createdAt");
+    this.updatedAt = (String) map.get("updatedAt");
+    this.deletedAt = (String) map.get("deletedAt");
+    this.bonus = (map.get("bonus") == null) ? null : (Integer) map.get("bonus");
+    this.quantity = (map.get("quantity") == null) ? null : (Integer) map.get("quantity");
+    this.total = (map.get("total") == null) ? null : (Double) map.get("total");
   }
   // Getters & Setters
   public Integer getId() {

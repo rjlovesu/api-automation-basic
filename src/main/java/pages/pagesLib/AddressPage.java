@@ -19,7 +19,6 @@ public class AddressPage extends BasePage {
   }
   public void chooseDeliveryAddress(String address){
     info("Choosing delivery address: " + address);
-
     AddressResponse addressResponse = (AddressResponse) TestCaseContext.getLedger().get("addressResponse");
     for (AddressInfo info : addressResponse.getAddressInfos()) {
       if (info.getStreetAddress().equals(address)){

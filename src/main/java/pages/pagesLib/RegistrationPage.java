@@ -35,7 +35,6 @@ public class RegistrationPage extends BasePage {
             JUICE_SHOP_CLIENT.getApiCalls().createUser(userRegistrationPayload);
     response.statusCode(201);
     UserRegistrationResponse userRegistrationResponse = response.extract().body().as(UserRegistrationResponse.class);
-
     TestCaseContext.getLedger().put("createdUser", userRegistrationResponse);
   }
 }

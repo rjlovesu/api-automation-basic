@@ -1,10 +1,7 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Map;
-
-import static helpers.Logger.info;
 
 public class TrackOrderInfo {
   // Variables
@@ -16,13 +13,25 @@ public class TrackOrderInfo {
   private String email;
   private Double totalPrice;
   private Integer bonus;
-  private Double deliveryPrice;
-  private Integer eta;
+  private Integer deliveryPrice;
+  private String eta;
   private String _id;
   private ArrayList<ProductInfo> products;
   // Constructor
   public TrackOrderInfo(ArrayList<Map<String, Object>> data){
-
+    Map<String, Object> map = data.get(0);
+    this.promotionalAmount = (Integer) map.get("promotionalAmount");
+    this.paymentId = (String) map.get("paymentId");
+    this.addressId = (String) map.get("addressId");
+    this.orderId  = (String) map.get("orderId");
+    this.delivered = (Boolean) map.get("delivered");
+    this.email = (String) map.get("email");
+    this.totalPrice = (Double) map.get("totalPrice");
+    this.bonus = (Integer) map.get("bonus");
+    this.deliveryPrice = (Integer) map.get("deliveryPrice");
+    this.eta = (String) map.get("eta");
+    this._id = (String) map.get("_id");
+    unpackData((ArrayList<Map<String, Object>>) map.get("products"));
   }
   // Getters & Setters
   public Integer getPromotionalAmount() {
@@ -73,16 +82,16 @@ public class TrackOrderInfo {
   public void setBonus(Integer bonus) {
     this.bonus = bonus;
   }
-  public Double getDeliveryPrice() {
+  public Integer getDeliveryPrice() {
     return deliveryPrice;
   }
-  public void setDeliveryPrice(Double deliveryPrice) {
+  public void setDeliveryPrice(Integer deliveryPrice) {
     this.deliveryPrice = deliveryPrice;
   }
-  public Integer getEta() {
+  public String getEta() {
     return eta;
   }
-  public void setEta(Integer eta) {
+  public void setEta(String eta) {
     this.eta = eta;
   }
   public String get_id() {
@@ -98,10 +107,9 @@ public class TrackOrderInfo {
     this.products = products;
   }
   // Methods
-  @JsonProperty("products")
-  private void unpackData(ArrayList<Map<String, String>> data) {
+  private void unpackData(ArrayList<Map<String, Object>> data) {
     products = new ArrayList<ProductInfo>();
-    for (Map<String, String> map : data) {
+    for (Map<String, Object> map : data) {
       products.add(new ProductInfo(map));
     }
   }

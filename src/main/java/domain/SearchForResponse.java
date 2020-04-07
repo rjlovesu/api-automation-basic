@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Map;
 
-import static helpers.Logger.info;
-
 public class SearchForResponse extends BaseResponse {
   // Variables
   private ArrayList<ProductInfo> productInfos;
@@ -18,9 +16,9 @@ public class SearchForResponse extends BaseResponse {
   }
   // Methods
   @JsonProperty("data")
-  private void unpackData(ArrayList<Map<String, String>> data) {
+  private void unpackData(ArrayList<Map<String, Object>> data) {
     productInfos = new ArrayList<ProductInfo>();
-    for (Map<String, String> map : data) {
+    for (Map<String, Object> map : data) {
       productInfos.add(new ProductInfo(map));
     }
   }
