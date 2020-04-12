@@ -1,6 +1,5 @@
 Feature: Basic Actions feature
 
-  @WIPx
   Scenario: Search for banana
     When I search for "banana"
     Then I see "search results" in "Search" page with following data:
@@ -8,7 +7,6 @@ Feature: Basic Actions feature
       | Description  | Monkeys love it the most. |
       | Price        | 1.99                      |
 
-  @WIPx
   Scenario: Create new Juice Shop user
     When I "create user" in "Registration" page with the following data:
       | Email             | foo@bar.com                |
@@ -19,7 +17,6 @@ Feature: Basic Actions feature
       | Email    | foo@bar.com  |
       | Password | easyPassword |
 
-  @WIPx
   Scenario: Order an item
     When I log in with the following data:
       | Email    | demo |

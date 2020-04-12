@@ -8,9 +8,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepdefinitions"},
-        plugin = {"pretty",
-                "json:target/cucumber-reports/jsonReport.json",
-                "junit:target/cucumber-reports/xmlReport.xml"},
+        plugin = { "pretty",
+                "json:target/jsonReports/cucumber.json"},
         tags = {"not @WIP"}
 )
 
