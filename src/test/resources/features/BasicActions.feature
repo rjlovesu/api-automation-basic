@@ -1,4 +1,4 @@
-Feature: Basic Actions feature
+Feature: Basic Actions
 
   Scenario: Search for banana
     When I search for "banana"
