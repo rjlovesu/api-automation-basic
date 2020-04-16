@@ -18,9 +18,6 @@ public class Hooks {
   public void setUp(){
     killJuiceShop();
     startJuiceShop();
-
-    //System.out.println("Before hook!");
-    // TEST_CASE_CONTEXT = new TestCaseContext();
   }
 
   @After
