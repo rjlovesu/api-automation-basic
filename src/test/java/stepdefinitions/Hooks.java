@@ -26,20 +26,6 @@ public class Hooks {
   @After
   public void cleanUp(){
     clearJuiceShop();
-
-    /*
-    System.out.println("After hook!");
-    User user = (User) TEST_CASE_CONTEXT.ledger.get("user");
-    if(user!=null){
-      System.out.println("Deleting user: " + user.getId());
-      String password = (String) TEST_CASE_CONTEXT.ledger.get("password");
-      DeleteUserPayload deleteUserPayload = new DeleteUserPayload(password);
-      ValidatableResponse response = TEST_FORTY_EIGHT_CLIENT.getAccountCalls().deleteAnAccount(deleteUserPayload, user);
-      Integer code =  response.extract().statusCode();
-      // 204 if it is being deleted; 404 if it has been already deleted;
-      Assertions.assertThat(code == 204 || code == 404).isEqualTo(true);
-    }
-    */
   }
 
   // Juice Shop methods
@@ -52,7 +38,7 @@ public class Hooks {
       String line = "";
       while((line = br.readLine()) != null) {
         System.out.println(line);
-        if(line.contains("Server listening on port 3000")){ return; }
+        if(line.contains("listening")){ return; }
         if(line.toLowerCase().contains("warn")){ throw new Error("Failed to set up Juice Shop"); }
       }
     } catch (IOException e) {
