@@ -4,6 +4,8 @@ import domain.ProductInfo;
 import domain.TrackOrderResponse;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
+
+import java.util.ArrayList;
 import java.util.Map;
 
 import domain.OrderResponse;
@@ -54,12 +56,16 @@ public class OrderCompletionPage extends BasePage {
     ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().getTrackOrder(orderId);
     response.statusCode(200);
     TrackOrderResponse trackOrderResponse = response.extract().body().as(TrackOrderResponse.class);
-    ProductInfo productInfo = trackOrderResponse.getTrackOrderInfo().getProducts().get(0);
-    Assertions.assertThat(productInfo.getName()).
-            isEqualTo(map.get("Name"));
-    Assertions.assertThat(productInfo.getPrice().toString()).
-            isEqualTo(map.get("Price"));
-    Assertions.assertThat(trackOrderResponse.getTrackOrderInfo().getDelivered().toString()).
-            isEqualTo(map.get("Delivered"));
+    ArrayList<ProductInfo> products = trackOrderResponse.getTrackOrderInfo().getProducts();
+    for (ProductInfo productInfo : products) {
+      if(productInfo.getName().contains(map.get("Name"))){
+        Assertions.assertThat(productInfo.getName()).isEqualTo(map.get("Name"));
+        Assertions.assertThat(productInfo.getPrice().toString()).isEqualTo(map.get("Price"));
+        Assertions.assertThat(trackOrderResponse.getTrackOrderInfo().getDelivered().toString()).isEqualTo(map.get("Delivered"));
+        return;
+      }
+    }
+    info("Did not find product with name: " + map.get("Name"));
+    Assertions.assertThat(false).isEqualTo(true);
   }
 }
