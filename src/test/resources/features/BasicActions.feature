@@ -30,3 +30,22 @@ Feature: Basic Actions
       | Name      | Juice Shop Artwork |
       | Price     | 278.74             |
       | Delivered | false              |
+
+  @WIP
+  Scenario: Login with wrong credentials
+    When I try to log in with the following data:
+      | Email    | demo |
+      | Password | 1234 |
+    Then I see "response code" in "login" page with following data:
+      | Response code | 401                        |
+      | Error message | Invalid email or password. |
+
+  @WIP
+  Scenario: Delete basket items
+    When I log in with the following data:
+      | Email    | demo |
+      | Password | demo |
+    And I "delete items" in "basket" page with the following data:
+      | Name | Eggfruit Juice (500ml)   |
+      | Name | Raspberry Juice (1000ml) |
+    Then I see "empty basket" in "basket" page
