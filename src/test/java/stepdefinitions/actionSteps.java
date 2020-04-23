@@ -50,4 +50,9 @@ public class actionSteps {
   public void iCheckoutTheOrder() {
     PageManager.getPage("order completion").doAction("checkout order");
   }
+
+  @When("I try to log in with the following data:")
+  public void i_try_to_log_in_with_the_following_data(DataTable dataTable) {
+    PageManager.getPage("Login").doAction("try to log in", dataTable);
+  }
 }

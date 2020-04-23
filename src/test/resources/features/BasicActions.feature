@@ -31,7 +31,6 @@ Feature: Basic Actions
       | Price     | 278.74             |
       | Delivered | false              |
 
-  @WIP
   Scenario: Login with wrong credentials
     When I try to log in with the following data:
       | Email    | demo |

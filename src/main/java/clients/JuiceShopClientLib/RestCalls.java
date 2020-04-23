@@ -4,8 +4,6 @@ import io.restassured.response.ValidatableResponse;
 import payload.BasketCheckoutPayload;
 import payload.UserLogInPayload;
 
-import java.security.PublicKey;
-
 public class RestCalls extends BaseCalls {
   // Variables
   private static final String REST_USER_LOGIN = "rest/user/login";
