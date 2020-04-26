@@ -13,7 +13,7 @@ public class BaseCalls {
   public static final String BASE_PAGE = "http://localhost:3000/";
   // Methods
   public ValidatableResponse post(String link, Payload payload){
-    return  (ValidatableResponse) RestAssured.
+    return  RestAssured.
             given().
             log().ifValidationFails().
             header("Authorization", "Bearer " + getToken()).
@@ -25,7 +25,7 @@ public class BaseCalls {
             log().ifValidationFails();
   }
   public ValidatableResponse get(String link){
-    return  (ValidatableResponse) RestAssured.
+    return  RestAssured.
             given().
             log().ifValidationFails().
             header("Authorization", "Bearer " + getToken()).
