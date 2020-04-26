@@ -1,4 +1,4 @@
-package payload;
+package payloads;
 
 public class UserLogInPayload extends Payload {
   // Variables

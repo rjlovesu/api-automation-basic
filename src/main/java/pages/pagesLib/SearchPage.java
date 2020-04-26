@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import java.util.Map;
 
 import helpers.TestCaseContext;
-import payload.BasketItemsPayload;
+import payloads.BasketItemsPayload;
 import responses.ProductInfo;
 import responses.SearchForResponse;
 import responses.UserLogInResponse;

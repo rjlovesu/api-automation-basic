@@ -1,8 +1,8 @@
 package clients.JuiceShopClientLib;
 
 import io.restassured.response.ValidatableResponse;
-import payload.BasketCheckoutPayload;
-import payload.UserLogInPayload;
+import payloads.BasketCheckoutPayload;
+import payloads.UserLogInPayload;
 
 public class RestCalls extends BaseCalls {
   // Variables

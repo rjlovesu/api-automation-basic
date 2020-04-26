@@ -7,7 +7,7 @@ import java.util.Map;
 
 import responses.UserLogInResponse;
 import helpers.TestCaseContext;
-import payload.UserLogInPayload;
+import payloads.UserLogInPayload;
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;

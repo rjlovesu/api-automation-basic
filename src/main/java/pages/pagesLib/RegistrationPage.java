@@ -5,8 +5,8 @@ import io.restassured.response.ValidatableResponse;
 import java.util.Map;
 
 import responses.UserRegistrationResponse;
-import payload.SecurityQuestionPayload;
-import payload.UserRegistrationPayload;
+import payloads.SecurityQuestionPayload;
+import payloads.UserRegistrationPayload;
 import helpers.TestCaseContext;
 
 import static helpers.Logger.info;

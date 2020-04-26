@@ -2,8 +2,8 @@ package clients.JuiceShopClientLib;
 
 import io.restassured.response.ValidatableResponse;
 
-import payload.BasketItemsPayload;
-import payload.UserRegistrationPayload;
+import payloads.BasketItemsPayload;
+import payloads.UserRegistrationPayload;
 
 public class ApiCalls extends BaseCalls {
   // Variables

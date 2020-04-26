@@ -10,8 +10,8 @@ import responses.OrderResponse;
 import responses.UserLogInResponse;
 import helpers.TestCaseContext;
 import org.assertj.core.api.Assertions;
-import payload.BasketCheckoutPayload;
-import payload.OrderDetailsPayload;
+import payloads.BasketCheckoutPayload;
+import payloads.OrderDetailsPayload;
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;
