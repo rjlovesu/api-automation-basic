@@ -1,13 +1,13 @@
 package pages.pagesLib;
 
-import domain.ProductInfo;
-import domain.TrackOrderResponse;
+import responses.ProductInfo;
+import responses.TrackOrderResponse;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
 import java.util.ArrayList;
 import java.util.Map;
-import domain.OrderResponse;
-import domain.UserLogInResponse;
+import responses.OrderResponse;
+import responses.UserLogInResponse;
 import helpers.TestCaseContext;
 import org.assertj.core.api.Assertions;
 import payload.BasketCheckoutPayload;

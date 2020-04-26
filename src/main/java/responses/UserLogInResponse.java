@@ -1,4 +1,4 @@
-package domain;
+package responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;

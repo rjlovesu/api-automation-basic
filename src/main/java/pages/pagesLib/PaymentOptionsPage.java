@@ -1,7 +1,7 @@
 package pages.pagesLib;
 
-import domain.CardInfo;
-import domain.PaymentOptionResponse;
+import responses.CardInfo;
+import responses.PaymentOptionResponse;
 import helpers.TestCaseContext;
 import io.restassured.response.ValidatableResponse;
 

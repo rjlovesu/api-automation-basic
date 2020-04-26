@@ -4,7 +4,7 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.response.ValidatableResponse;
 import java.util.Map;
 
-import domain.UserRegistrationResponse;
+import responses.UserRegistrationResponse;
 import payload.SecurityQuestionPayload;
 import payload.UserRegistrationPayload;
 import helpers.TestCaseContext;

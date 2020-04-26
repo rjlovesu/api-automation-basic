@@ -2,8 +2,8 @@ package pages.pagesLib;
 
 import io.restassured.response.ValidatableResponse;
 
-import domain.DeliveriesResponse;
-import domain.DeliveryOptionInfo;
+import responses.DeliveriesResponse;
+import responses.DeliveryOptionInfo;
 import helpers.TestCaseContext;
 
 import static helpers.Logger.info;

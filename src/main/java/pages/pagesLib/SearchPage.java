@@ -7,9 +7,9 @@ import java.util.Map;
 
 import helpers.TestCaseContext;
 import payload.BasketItemsPayload;
-import domain.ProductInfo;
-import domain.SearchForResponse;
-import domain.UserLogInResponse;
+import responses.ProductInfo;
+import responses.SearchForResponse;
+import responses.UserLogInResponse;
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;

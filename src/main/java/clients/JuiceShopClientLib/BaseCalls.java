@@ -1,6 +1,6 @@
 package clients.JuiceShopClientLib;
 
-import domain.UserLogInResponse;
+import responses.UserLogInResponse;
 import helpers.TestCaseContext;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

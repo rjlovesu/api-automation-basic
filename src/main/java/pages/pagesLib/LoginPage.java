@@ -5,7 +5,7 @@ import io.restassured.response.ValidatableResponse;
 import org.assertj.core.api.Assertions;
 import java.util.Map;
 
-import domain.UserLogInResponse;
+import responses.UserLogInResponse;
 import helpers.TestCaseContext;
 import payload.UserLogInPayload;
 

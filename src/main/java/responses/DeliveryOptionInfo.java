@@ -1,4 +1,4 @@
-package domain;
+package responses;
 
 import java.util.Map;
 

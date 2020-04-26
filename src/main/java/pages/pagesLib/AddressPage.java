@@ -1,7 +1,7 @@
 package pages.pagesLib;
 
-import domain.AddressInfo;
-import domain.AddressResponse;
+import responses.AddressInfo;
+import responses.AddressResponse;
 import helpers.TestCaseContext;
 import io.restassured.response.ValidatableResponse;
 

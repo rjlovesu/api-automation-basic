@@ -1,4 +1,4 @@
-package domain;
+package responses;
 
 public class OrderResponse extends BaseResponse {
   // Variables

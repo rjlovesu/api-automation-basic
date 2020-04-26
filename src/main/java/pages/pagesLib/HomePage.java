@@ -1,6 +1,6 @@
 package pages.pagesLib;
 
-import domain.SearchForResponse;
+import responses.SearchForResponse;
 import helpers.TestCaseContext;
 import io.restassured.response.ValidatableResponse;
 
