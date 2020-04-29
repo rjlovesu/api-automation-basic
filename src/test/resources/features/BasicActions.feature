@@ -1,5 +1,6 @@
 Feature: Basic Actions
 
+  @WIP
   Scenario: Search for banana
     When I search for "banana"
     Then I see "search results" in "Search" page with following data:
@@ -7,6 +8,7 @@ Feature: Basic Actions
       | Description  | Monkeys love it the most. |
       | Price        | 1.99                      |
 
+  @WIP
   Scenario: Create new Juice Shop user
     When I "create user" in "Registration" page with the following data:
       | Email             | foo@bar.com                |
@@ -17,6 +19,7 @@ Feature: Basic Actions
       | Email    | foo@bar.com  |
       | Password | easyPassword |
 
+  @WIP
   Scenario: Order an item
     When I log in with the following data:
       | Email    | demo |
@@ -31,6 +34,7 @@ Feature: Basic Actions
       | Price     | 278.74             |
       | Delivered | false              |
 
+  @WIP
   Scenario: Login with wrong credentials
     When I try to log in with the following data:
       | Email    | demo |
@@ -39,7 +43,7 @@ Feature: Basic Actions
       | Response code | 401                        |
       | Error message | Invalid email or password. |
 
-  @WIP
+  @HOME_WORK @IMPLEMENT_THIS
   Scenario: Delete basket items
     When I log in with the following data:
       | Email    | demo |
@@ -48,3 +52,16 @@ Feature: Basic Actions
       | Name | Eggfruit Juice (500ml)   |
       | Name | Raspberry Juice (1000ml) |
     Then I see "empty basket" in "basket" page
+
+  @HOME_WORK @IMPLEMENT_THIS
+  Scenario: Change password
+    When I log in with the following data:
+      | Email    | demo |
+      | Password | demo |
+    And  I change password with the following data:
+      | Current Password    | demo            |
+      | New Password        | newDemoPassword |
+      | Repeat New Password | newDemoPassword |
+    Then I log in with the following data:
+      | Email    | newDemoPassword |
+      | Password | newDemoPassword |
