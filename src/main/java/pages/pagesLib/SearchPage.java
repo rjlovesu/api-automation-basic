@@ -23,6 +23,7 @@ public class SearchPage extends BasePage {
       default             : super.doAction(action, dataTable);
     }
   }
+
   @Override
   public void doAction(String action, String data) {
     switch (capitalizeSecond(action)){
@@ -30,15 +31,19 @@ public class SearchPage extends BasePage {
       default           : super.doAction(action, data);
     }
   }
+
   public void searchResults(DataTable dataTable){
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
     info("Validating Search Results with following data:\n" + map);
+    
     SearchForResponse searchForResponse = (SearchForResponse) TestCaseContext.getLedger().get("searchResponse");
     ProductInfo productInfo =  searchForResponse.getProductInfos().get(0);
+    
     Assertions.assertThat(productInfo.getName()).isEqualTo(map.get("Name"));
     Assertions.assertThat(productInfo.getDescription()).isEqualTo(map.get("Description"));
     Assertions.assertThat(productInfo.getPrice()).isEqualTo(Double.valueOf(map.get("Price")));
   }
+
   public void addToBasket(String data){
     info("Adding to basket: " + data);
     SearchForResponse searchForResponse = (SearchForResponse) TestCaseContext.getLedger().get("searchResponse");

@@ -43,7 +43,7 @@ Feature: Basic Actions
       | Response code | 401                        |
       | Error message | Invalid email or password. |
 
-  @HOME_WORK @IMPLEMENT_THIS
+  @WIP+ @HOME_WORK @IMPLEMENT_THIS
   Scenario: Delete basket items
     When I log in with the following data:
       | Email    | demo |
@@ -53,7 +53,7 @@ Feature: Basic Actions
       | Name | Raspberry Juice (1000ml) |
     Then I see "empty basket" in "basket" page
 
-  @HOME_WORK @IMPLEMENT_THIS
+  @WIP @HOME_WORK @IMPLEMENT_THIS
   Scenario: Change password
     When I log in with the following data:
       | Email    | demo |

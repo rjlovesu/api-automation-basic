@@ -17,6 +17,7 @@ public class AddressPage extends BasePage {
       default             : super.doAction(action, data);
     }
   }
+  
   public void chooseDeliveryAddress(String address){
     info("Choosing delivery address: " + address);
     AddressResponse addressResponse = (AddressResponse) TestCaseContext.getLedger().get("addressResponse");
