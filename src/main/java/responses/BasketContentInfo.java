@@ -13,15 +13,15 @@ public class BasketContentInfo{
     
   }
 
-  public String getBasketItemIdByName(String name){
+  public Integer getBasketItemIdByName(String name){
     for(Map<String, Object> product: products){
       if(product.get("name").equals(name)){
         @SuppressWarnings("unchecked")
         Map<String,Object> basketItemInfo=(Map<String,Object>)product.get("BasketItem");
-        return Integer.toString((Integer)basketItemInfo.get("id"));
+        return (Integer)basketItemInfo.get("id");
       }
     }
-    return "id not found";
+    return null;
   }
 
   public ArrayList<Map<String, Object>> getProducts(){

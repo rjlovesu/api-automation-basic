@@ -37,13 +37,13 @@ public class BaseCalls {
             log().ifValidationFails();
   }
   
-  public ValidatableResponse delete(String link, Payload payload){
+  public ValidatableResponse delete(String link){
     return  RestAssured.
             given().
             log().ifValidationFails().
             header("Authorization", "Bearer " + getToken()).
             contentType(ContentType.JSON).
-            body(payload).
+            body("{}").
             when().
             post(BASE_PAGE + link).
             then().
