@@ -63,5 +63,5 @@ Feature: Basic Actions
       | New Password        | newDemoPassword |
       | Repeat New Password | newDemoPassword |
     Then I log in with the following data:
-      | Email    | newDemoPassword |
+      | Email    | demo            |
       | Password | newDemoPassword |
