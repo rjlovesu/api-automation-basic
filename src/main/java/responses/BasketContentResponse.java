@@ -6,11 +6,18 @@ import java.util.Map;
 
 public class BasketContentResponse extends BaseResponse {
   // Variables
-  //private TrackOrderInfo trackOrderInfo;
+  private BasketContentInfo basketContentInfo;
   // Methods
   @JsonProperty("data")
   private void unpackData(Map<String, Object> data) {
-    //this.trackOrderInfo = new TrackOrderInfo(data);
+    this.basketContentInfo = new BasketContentInfo(data);
   }
   
+  public BasketContentInfo getBasketContentInfo(){
+    return basketContentInfo;
+  }
+  public void setBasketContentInfo(BasketContentInfo basketContentInfo){
+    this.basketContentInfo=basketContentInfo;
+  }
+
 }

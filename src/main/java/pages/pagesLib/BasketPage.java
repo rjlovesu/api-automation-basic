@@ -23,15 +23,18 @@ public class BasketPage extends BasePage {
   }
 
   @Override
-  public void doAction(String action,DataTable datatable) {
+  public void doAction(String action,DataTable dataTable) {
     switch (capitalizeSecond(action)){
-      case "deleteItems": deleteItems(datatable); break;
+      case "deleteItems": deleteItems(dataTable); break;
       default           : super.doAction(action);
     }
   }
 
-  public void deleteItems(DataTable datatable){
-    info("DELETING ITEMS");
+  public void deleteItems(DataTable dataTable){
+
+    Map<String, String> map = dataTable.transpose().asMaps().get(0);
+
+    info("DELETING ITEMS WITH THE FOLLOWING DATA: "+map);
     info("Getting user bid");
     UserLogInResponse userLogInResponse = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
     Integer bid = userLogInResponse.getBid();
@@ -41,6 +44,9 @@ public class BasketPage extends BasePage {
     info(response.extract().response().asString());
 
     BasketContentResponse basketContentResponse = response.extract().body().as(BasketContentResponse.class);
+    for(String name: map.values()){
+      info(name+" id: "+basketContentResponse.getBasketContentInfo().getBasketItemIdByName(name));
+    }
   }
 
   public void checkout(){
