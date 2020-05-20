@@ -53,7 +53,7 @@ Feature: Basic Actions
       | Name 1 | Raspberry Juice (1000ml) |
     Then I see "empty basket" in "basket" page
 
-  @WIP+ @HOME_WORK @IMPLEMENT_THIS
+  @WIP @HOME_WORK @IMPLEMENT_THIS
   Scenario: Change password
     When I log in with the following data:
       | Email    | demo |
