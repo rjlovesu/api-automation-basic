@@ -13,6 +13,10 @@ public class BasketContentInfo{
     
   }
 
+  public boolean isEmpty(){
+    return products.size()==0;
+  }
+
   public Integer getBasketItemIdByName(String name){
     for(Map<String, Object> product: products){
       if(product.get("name").equals(name)){
