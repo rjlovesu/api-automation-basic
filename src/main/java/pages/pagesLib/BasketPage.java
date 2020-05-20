@@ -17,7 +17,7 @@ public class BasketPage extends BasePage {
   // Methods
   @Override
   public void doAction(String action) {
-    switch (action) {
+    switch (capitalizeSecond(action)) {
       case "checkout":
         checkout();
         break;
