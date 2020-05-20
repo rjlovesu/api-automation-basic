@@ -1,6 +1,7 @@
 package pages.pagesLib;
 
 import responses.AddressResponse;
+import responses.BasketContentResponse;
 import helpers.TestCaseContext;
 import io.restassured.response.ValidatableResponse;
 import io.cucumber.datatable.DataTable;
@@ -38,7 +39,7 @@ public class BasketPage extends BasePage {
     
     info("Getting basket");
     ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().getBasket(bid);
-    info(response.body());
+    info(response.extract().body());
 
     BasketContentResponse basketContentResponse = response.extract().body().as(BasketContentResponse.class);
   }
