@@ -45,7 +45,7 @@ public class BaseCalls {
             contentType(ContentType.JSON).
             body("{}").
             when().
-            post(BASE_PAGE + link).
+            delete(BASE_PAGE + link).
             then().
             log().ifValidationFails();
   }
