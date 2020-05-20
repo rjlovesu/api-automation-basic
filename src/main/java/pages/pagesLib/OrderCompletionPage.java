@@ -34,11 +34,14 @@ public class OrderCompletionPage extends BasePage {
   }
   public void checkoutOrder(){
     info("Checking out order");
+
     String paymentId = TestCaseContext.getLedger().get("paymentId").toString();
     String addressId = TestCaseContext.getLedger().get("addressId").toString();
     String deliveryMethodId = TestCaseContext.getLedger().get("deliveryMethodId").toString();
     UserLogInResponse userLogInResponse = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
+    
     Integer bid = userLogInResponse.getBid();
+
     OrderDetailsPayload payload =
             new OrderDetailsPayload(paymentId, addressId, deliveryMethodId);
     BasketCheckoutPayload basketCheckoutPayload = new BasketCheckoutPayload("", payload);
@@ -48,12 +51,19 @@ public class OrderCompletionPage extends BasePage {
     TestCaseContext.getLedger().put("orderId", orderResponse.getOrderConfirmation());
   }
   public void trackOrder(DataTable dataTable){
+
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
+
     info("Tracking order with the following data:\n" + map);
+
     String orderId = (String) TestCaseContext.getLedger().get("orderId");
+
     ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().getTrackOrder(orderId);
+
     response.statusCode(200);
+
     TrackOrderResponse trackOrderResponse = response.extract().body().as(TrackOrderResponse.class);
+    
     ArrayList<ProductInfo> products = trackOrderResponse.getTrackOrderInfo().getProducts();
     for (ProductInfo productInfo : products) {
       if(productInfo.getName().contains(map.get("Name"))){

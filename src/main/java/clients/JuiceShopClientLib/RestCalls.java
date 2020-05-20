@@ -24,4 +24,8 @@ public class RestCalls extends BaseCalls {
   public ValidatableResponse getTrackOrder(String orderId){
     return get(REST_TRACK_ORDER + orderId);
   }
+  //geting basket
+  public ValidatableResponse getBasket(Integer bid){
+    return get(REST_BASKET_ + bid);
+  }
 }
