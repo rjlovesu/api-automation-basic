@@ -9,7 +9,7 @@ public class BasketContentResponse extends BaseResponse {
   //private TrackOrderInfo trackOrderInfo;
   // Methods
   @JsonProperty("data")
-  private void unpackData(ArrayList<Map<String, Object>> data) {
+  private void unpackData(Map<String, Object> data) {
     //this.trackOrderInfo = new TrackOrderInfo(data);
   }
   
