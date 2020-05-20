@@ -17,8 +17,8 @@ public class BasketContentInfo{
     for(Map<String, Object> product: products){
       if(product.get("name").equals(name)){
         @SuppressWarnings("unchecked")
-        Map<String,String> basketItemInfo=(Map<String,String>)product.get("BasketItem");
-        return basketItemInfo.get("id");
+        Map<String,Object> basketItemInfo=(Map<String,Object>)product.get("BasketItem");
+        return Integer.toString((Integer)basketItemInfo.get("id"));
       }
     }
     return "id not found";
