@@ -7,8 +7,7 @@ import io.restassured.response.ValidatableResponse;
 import io.cucumber.datatable.DataTable;
 import java.util.Map;
 import responses.UserLogInResponse;
-import helpers.TestCaseContext;
-import io.cucumber.datatable.DataTable;
+
 
 import static helpers.Logger.info;
 import static helpers.TestCaseContext.JUICE_SHOP_CLIENT;
@@ -39,7 +38,7 @@ public class BasketPage extends BasePage {
     
     info("Getting basket");
     ValidatableResponse response = JUICE_SHOP_CLIENT.getRestCalls().getBasket(bid);
-    info(response.extract().body());
+    info(response.extract().response().asString());
 
     BasketContentResponse basketContentResponse = response.extract().body().as(BasketContentResponse.class);
   }
