@@ -11,6 +11,7 @@ public class RestCalls extends BaseCalls {
   private static final String REST_BASKET_ = "rest/basket/";
   private static final String _CHECKOUT = "/checkout";
   private static final String REST_TRACK_ORDER = "rest/track-order/";
+  private static final String REST_USER_CHANGE_PASSWORD = "rest/user/change-password";
   // Methods
   public ValidatableResponse logIn(UserLogInPayload payload){
     return post(REST_USER_LOGIN, payload);
@@ -24,8 +25,11 @@ public class RestCalls extends BaseCalls {
   public ValidatableResponse getTrackOrder(String orderId){
     return get(REST_TRACK_ORDER + orderId);
   }
-  //geting basket
   public ValidatableResponse getBasket(Integer bid){
     return get(REST_BASKET_ + bid);
+  }
+  public ValidatableResponse changePassword(String oldPassword,String newPassword,String newPasswordRepeat){
+    //rest/user/change-password?current=demo&new=newpw&repeat=newpw
+    return get(REST_USER_CHANGE_PASSWORD + "?current="+oldPassword+"&new="+newPassword+"&repeat="+newPasswordRepeat);
   }
 }

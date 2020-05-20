@@ -51,11 +51,9 @@ public class BasketPage extends BasePage {
   }
 
   public void deleteItems(DataTable dataTable) {
-
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
-
     info("Deleting items with the following data: " + map);
-
+    
     info("Getting basket item ids");
     UserLogInResponse userLogInResponse = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
     Integer bid = userLogInResponse.getBid();
