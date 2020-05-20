@@ -41,6 +41,7 @@ public class BasketPage extends BasePage {
   }
 
   public void emptyBasket(){
+    info("Validating whether basket is empty");
     UserLogInResponse userLogInResponse = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
     Integer bid = userLogInResponse.getBid();
     ValidatableResponse idResponse = JUICE_SHOP_CLIENT.getRestCalls().getBasket(bid);
@@ -53,19 +54,13 @@ public class BasketPage extends BasePage {
 
     Map<String, String> map = dataTable.transpose().asMaps().get(0);
 
-    info("DELETING ITEMS WITH THE FOLLOWING DATA: " + map);
-
-    info("Getting user bid");
-    UserLogInResponse userLogInResponse = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
-    Integer bid = userLogInResponse.getBid();
+    info("Deleting items with the following data: " + map);
 
     info("Getting basket item ids");
+    UserLogInResponse userLogInResponse = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
+    Integer bid = userLogInResponse.getBid();
     ValidatableResponse idResponse = JUICE_SHOP_CLIENT.getRestCalls().getBasket(bid);
     idResponse.statusCode(200);
-
-    //TODO delete later - getting raw JSON 
-    info(idResponse.extract().response().asString());
-
     BasketContentResponse basketContentResponse = idResponse.extract().body().as(BasketContentResponse.class);
     ArrayList<Integer> basketItemIds = new ArrayList<Integer>();
     for (String name : map.values()) {
@@ -83,7 +78,6 @@ public class BasketPage extends BasePage {
   }
 
   public void checkout() {
-
     info("Performing checkout");
     ValidatableResponse response = JUICE_SHOP_CLIENT.getApiCalls().checkout();
     response.statusCode(200);
